@@ -1,0 +1,302 @@
+#include<iostream>
+#include<graphics.h>
+int j,k,l;
+void frame()
+{
+    //chath
+    line(10,100,510,100);
+    line(10,100,60,50);
+    line(510,100,560,50);
+    line(60,50,560,50);
+    line(530,100,570,100);
+    line(570,100,560,50);
+    setfillstyle(1,6);
+    floodfill(285,75,15);
+
+    setfillstyle(1,1);
+    line(40,100,40,400);
+    line(40,400,70,380);
+    line(70,380,70,100);
+    line(40,400,500,400);
+    line(500,400,500,100);
+    line(500,400,530,380);
+    line(70,380,530,380);
+    floodfill(55,250,15);
+    line(530,380,530,80);
+    floodfill(515,250,15);
+    floodfill(225,390,15);
+    floodfill(502,385,15);
+    setfillstyle(1,3);
+    floodfill(200,150,15);
+    floodfill(535,95,15);
+}
+void aqua(int i,int x, int y,int r,int j)
+{
+    if(i>=50)
+        aqua(i-50,x,y,r,j-50);
+    if(i>=100)
+        aqua(i-100,x,y,r,j-100);
+    if(i>=150)
+        aqua(i-150,x,y,r,j-150);
+    if(i>=200)
+        aqua(i-200,x,y,r,j-200);
+    if(i>=250)
+        aqua(i-250,x,y,r,j-250);
+    setfillstyle(1,9);
+    if(y-i>105)
+    {
+        if(i<41)
+        {
+            circle(x+j,y-i,r);
+            floodfill(x+j,y-i,15);
+        }
+        else
+        {
+            circle(x+41,y-i,r);
+            floodfill(x+41,y-i,15);
+        }
+    }
+}
+void aqua(int i,int x, int y,int r)
+{
+    if(i>=50)
+        aqua(i-50,x,y,r);
+    if(i>=100)
+        aqua(i-100,x,y,r);
+    if(i>=200)
+        aqua(i-200,x,y,r);
+    if(i>=250)
+        aqua(i-250,x,y,r);
+    setfillstyle(1,9);
+    if(y-i>108)
+    {
+        circle(x,y-i,r);
+        floodfill(x,y-i,15);
+    }
+}
+void first_fish(int i)
+{
+    /*if(i<10)
+    {
+        setfillstyle(1,12);
+        line(190+i,250,230+i,290);
+        line(190+i,250,130+i,310);
+        line(130+i,270,190+i,330);
+        line(230+i,290,190+i,330);
+        line(130+i,310,130+i,270);
+        floodfill(170+i,290,15);
+        setfillstyle(1,5);
+        floodfill(135+i,290,15);
+        circle(210+i,290,3);
+        setfillstyle(1,0);
+        floodfill(210+i,290,15);
+        arc(230+i,290,135,225,40);
+        setfillstyle(1,5);
+        floodfill(215+i,290,15);
+    }
+    else*/ if(i>9&&i<75)
+    {
+        /*setfillstyle(1,12);
+        line(190+i,250-j,230+i,290-j);
+        line(190+i,250-j,130+i,310-j);
+        line(130+i,270-j,190+i,330-j);
+        line(230+i,290-j,190+i,330-j);
+        line(130+i,310-j,130+i,270-j);
+        floodfill(170+i,290-j,15);
+        setfillstyle(1,5);
+        floodfill(135+i,290-j,15);
+        circle(210+i,290-j,3);
+        setfillstyle(1,0);
+        floodfill(210+i,290-j,15);
+        arc(230+i,290-j,135,225,40);
+        setfillstyle(1,5);
+        floodfill(215+i,290-j,15);*/
+        j+=2;
+    }
+    /*else
+    {
+        setfillstyle(1,12);
+        line(190+i,250-j,230+i,290-j);
+        line(190+i,250-j,130+i,310-j);
+        line(130+i,270-j,190+i,330-j);
+        line(230+i,290-j,190+i,330-j);
+        line(130+i,310-j,130+i,270-j);
+        floodfill(170+i,290-j,15);
+        setfillstyle(1,5);
+        floodfill(135+i,290-j,15);
+        circle(210+i,290-j,3);
+        setfillstyle(1,0);
+        floodfill(210+i,290-j,15);
+        arc(230+i,290-j,135,225,40);
+        setfillstyle(1,5);
+        floodfill(215+i,290-j,15);
+    }*/
+    setfillstyle(1,12);
+    line(190+i,250-j,230+i,290-j);
+    line(190+i,250-j,130+i,310-j);
+    line(130+i,270-j,190+i,330-j);
+    line(230+i,290-j,190+i,330-j);
+    line(130+i,310-j,130+i,270-j);
+    floodfill(170+i,290-j,15);
+    setfillstyle(1,5);
+    floodfill(135+i,290-j,15);
+    circle(210+i,290-j,3);
+    setfillstyle(1,0);
+    floodfill(210+i,290-j,15);
+    arc(230+i,290-j,135,225,40);
+    setfillstyle(1,5);
+    floodfill(215+i,290-j,15);
+}
+void circular_fish(int i)
+{
+    /*if(i<10)
+    {
+        arc(400-i,150,90,270,30);
+        line(400-i,120,490-i,165);
+        line(400-i,180,490-i,135);
+        line(490-i,165,490-i,135);
+        setfillstyle(1,2);
+        floodfill(400-i,150,15);
+        setfillstyle(1,4);
+        floodfill(480-i,150,15);
+        circle(380-i,150,3);
+        setfillstyle(1,0);
+        floodfill(380-i,150,15);
+        arc(380-i,150,270,90,20);
+        setfillstyle(1,4);
+        floodfill(390-i,150,15);
+    }
+    else*/ if(i>9&&i<150)
+    {
+        /*arc(400-i,150+k,90,270,30);
+        line(400-i,120+k,490-i,165+k);
+        line(400-i,180+k,490-i,135+k);
+        line(490-i,165+k,490-i,135+k);
+        setfillstyle(1,2);
+        floodfill(400-i,150+k,15);
+        setfillstyle(1,4);
+        floodfill(480-i,150+k,15);
+        circle(380-i,150+k,3);
+        setfillstyle(1,0);
+        floodfill(380-i,150+k,15);
+        arc(380-i,150+k,270,90,20);
+        setfillstyle(1,4);
+        floodfill(390-i,150+k,15);*/
+        k++;
+    }
+    /*else
+    {
+        arc(400-i,150+k,90,270,30);
+        line(400-i,120+k,490-i,165+k);
+        line(400-i,180+k,490-i,135+k);
+        line(490-i,165+k,490-i,135+k);
+        setfillstyle(1,2);
+        floodfill(400-i,150+k,15);
+        setfillstyle(1,4);
+        floodfill(480-i,150+k,15);
+        circle(380-i,150+k,3);
+        setfillstyle(1,0);
+        floodfill(380-i,150+k,15);
+        arc(380-i,150+k,270,90,20);
+        setfillstyle(1,4);
+        floodfill(390-i,150+k,15);
+    }*/
+    arc(400-i,150+k,90,270,30);
+    line(400-i,120+k,490-i,165+k);
+    line(400-i,180+k,490-i,135+k);
+    line(490-i,165+k,490-i,135+k);
+    setfillstyle(1,2);
+    floodfill(400-i,150+k,15);
+    setfillstyle(1,4);
+    floodfill(480-i,150+k,15);
+    circle(380-i,150+k,3);
+    setfillstyle(1,0);
+    floodfill(380-i,150+k,15);
+    arc(380-i,150+k,270,90,20);
+    setfillstyle(1,4);
+    floodfill(390-i,150+k,15);
+}
+void pebbles()
+{
+    l=0;
+    for(int i=390;i>=370;i-=10)
+    {
+        for(int j=0;j<435;j+=20)
+        {
+            if(i==390)
+             {
+                circle(65+j,i,10);
+                setfillstyle(1,8);
+                floodfill(65+j,i,15);
+             }
+            else
+            {
+                if(j==420)
+                {
+                    if(i==370)
+                        continue;
+                    if(i==380)
+                    {
+                        arc(65+j+l,i,270,540,10);
+                        setfillstyle(1,8);
+                        floodfill(65+j+l,i+5,15);
+                        floodfill(65+j+l,i-5,15);
+                    }
+                }
+                if (j==0)
+                    l+=10;
+                arc(65+j+l,i,0,180,10);
+                setfillstyle(1,8);
+                floodfill(65+j+l,i+5,15);
+                floodfill(65+j+l,i-5,15);
+            }
+        }
+    }
+}
+int main()
+{
+    int gd=DETECT,gm;
+    initgraph(&gd,&gm,"");
+    int page=0;
+    j=0;
+    k=0;
+    for(int i=0;i<265;i++)
+    {
+
+        setactivepage(page);
+        setvisualpage(1-page);
+        cleardevice();
+        line(50,300,80,300);
+        line(80,300,80,370);
+        line(50,370,80,370);
+        line(50,300,50,370);
+        line(80,305,90,305);
+        line(80,310,90,310);
+        line(90,305,90,310);
+        setfillstyle(1,14);
+        floodfill(60,330,15);
+        setfillstyle(1,0);
+        floodfill(85,307,15);
+        first_fish(i);
+
+        frame();
+
+        setfillstyle(1,10);
+        floodfill(10,10,15);
+
+        circular_fish(i);
+        pebbles();
+        aqua(i,90,317,5,i);
+        aqua(i,100,307,5,i);
+        aqua(i,110,297,10);
+        aqua(i,110,317,7);
+        aqua(i,90,297,7,i);
+
+        page=1-page;
+        delay(50);
+
+
+    }
+    closegraph();
+    return 0;
+}
